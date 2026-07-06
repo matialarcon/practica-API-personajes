@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+.searcher-character-container {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  padding: 20px 0;
+}
+
+.searcher-character {
+  padding: 2px 200px 2px 4px;
+  outline: none;
+  font-weight: 700;
+}
