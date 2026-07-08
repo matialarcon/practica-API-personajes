@@ -2,6 +2,11 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
 .searcher-character-container {
   display: flex;
   justify-content: center;
@@ -12,5 +17,28 @@ body {
 .searcher-character {
   padding: 2px 200px 2px 4px;
   outline: none;
+  font-weight: 700;
+}
+
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 40px;
+  padding: 20px;
+}
+
+.character-container {
+  list-style: none;
+  background-color: rgb(8, 163, 163);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 0 0;
+}
+
+.character-img {
+  width: 100%;
+}
+
+.character-name {
   font-weight: 700;
 }
