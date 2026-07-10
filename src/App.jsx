@@ -38,7 +38,7 @@ function ListCharacters() {
       .catch(error => setError(error.message))
   }, [])
 
-  if (error != "") return <p>{error}</p>
+  if (error !== "") return <p>{error}</p>
 
   return (
     <>
@@ -50,6 +50,14 @@ function ListCharacters() {
             <li key={p.id} className="character-container">
               <img src={p.images.lg} alt="imagen personaje" className="character-img"/>
               <p className="character-name">{p.name}</p>
+              <div className="stats-container">
+                <span title="Inteligencia" className="stats">🧠 {p.powerstats.intelligence}</span>
+                <span title="Fuerza" className="stats">💪 {p.powerstats.strength}</span>
+                <span title="Velocidad" className="stats">⚡ {p.powerstats.speed}</span>
+                <span title="Resistencia" className="stats">🛡️ {p.powerstats.durability}</span>
+                <span title="Poder" className="stats">✨ {p.powerstats.power}</span>
+                <span title="Combate" className="stats">⚔️ {p.powerstats.combat}</span>
+              </div>
             </li>
           ))}
         </ul>
