@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { searcherContext } from "../context/searcherContext"
 
 function App() {
   return(
@@ -15,10 +16,12 @@ function App() {
 }
 
 function Searcher() {
+  const { setSearch } = useContext(searcherContext)
+
   return (
     <>
       <form className="searcher-character-container">
-        <input type="text" placeholder="Buscar personaje" className="searcher-character" name="character"/>
+        <input type="text" placeholder="Buscar personaje" className="searcher-character" name="character" onChange={() => setSearch(event.target.value)}/>
       </form>
     </>
   )
@@ -27,6 +30,7 @@ function Searcher() {
 function ListCharacters() {
   const [character, setCharacter] = useState([])
   const [error, setError] = useState("")
+  const { search } = useContext(searcherContext)
 
   useEffect(() => {
     fetch("https://akabab.github.io/superhero-api/api/all.json")
@@ -40,13 +44,20 @@ function ListCharacters() {
 
   if (error !== "") return <p>{error}</p>
 
+  const filteredCharacters = character.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
+
   return (
     <>
       <h1>Lista de personajes</h1>
 
-      <div>
-        <ul className="character-list">
-          {character.map(p => (
+      {filteredCharacters.length === 0 && search !== '' ? (
+        <p className="empty-list characters-not-found">No se encontraron personajes</p>
+      ): filteredCharacters.length === 0 ? (
+        <p className="empty-list">Cargando...</p>
+      ) : (
+        <div>
+          <ul className="character-list">
+          {filteredCharacters.map(p => (
             <li key={p.id} className="character-container">
               <img src={p.images.lg} alt="imagen personaje" className="character-img"/>
               <p className="character-name">{p.name}</p>
@@ -60,8 +71,9 @@ function ListCharacters() {
               </div>
             </li>
           ))}
-        </ul>
-      </div>
+          </ul>
+        </div>
+      )}
     </>
   )
 }
