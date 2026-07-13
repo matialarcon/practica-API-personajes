@@ -29,6 +29,10 @@ h1 {
 
 /*Estilos del listado de personajes*/
 
+.fetch-error {
+  margin-top: 20px;
+}
+
 .empty-list {
   margin-top: 20px;
 }
