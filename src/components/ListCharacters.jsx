@@ -18,7 +18,7 @@ export function ListCharacters() {
             <ul className="character-list">
             {filteredCharacters.map(p => (
                 <li key={p.id} className="character-container">
-                <img src={p.images.lg} alt="imagen personaje" className="character-img"/>
+                <img src={p.images.lg} alt="imagen personaje" className="character-img" loading="lazy" decoding="async"/>
                 <p className="character-name">{p.name}</p>
                 <div className="stats-container">
                     <span title="Inteligencia" className="stats">🧠 {p.powerstats.intelligence}</span>

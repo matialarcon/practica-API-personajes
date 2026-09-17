@@ -7,10 +7,11 @@ function App() {
       <header>
         <Searcher />
       </header>
-
-      <section>
-        <ListCharacters />
-      </section>
+      <main>
+        <section>
+          <ListCharacters />
+        </section>
+      </main>
     </>
   )
 }
