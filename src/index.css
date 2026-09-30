@@ -2,14 +2,21 @@
 
 * {
   margin: 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: bold;
 }
 
 /*Estilos del título principal*/
 
-h1 {
+h1, .character-name {
   margin-top: 20px;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
 }
 
 /*Estilos del buscador*/
@@ -25,6 +32,8 @@ h1 {
   padding: 2px 200px 2px 4px;
   text-align: start;
   outline: none;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
 /*Estilos del listado de personajes*/
@@ -61,8 +70,9 @@ h1 {
 }
 
 .character-name {
-  font-weight: 700;
+  margin-top: 0;
   margin: 10px 0;
+  font-weight: 100;
 }
 
 .stats-container {
@@ -77,4 +87,47 @@ h1 {
   background-color: rgb(1, 33, 61);
   color: white;
   cursor: default;
+  font-weight: normal;
+}
+
+/*Estilos del paginador*/
+
+.pages-counter {
+  font-size: 1.1rem;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.pages-change-button-list {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.pages-change-button {
+  background-color: rgb(8, 163, 163);
+  border: 1px solid #000;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.pages-change-button:enabled:hover {
+  opacity: 0.7;
+}
+
+.pages-change-button:disabled {
+  background-color: #007a80; 
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.page-turner:disabled {
+  opacity: 0.5;
 }
