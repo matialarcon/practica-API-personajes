@@ -21,20 +21,23 @@ export function ListCharacters() {
             ) : (
                 <div>
                     <ul className="character-list">
-                        {charactersVisibles.map(character => (
-                            <li key={character.id} className="character-container">
-                                <img src={character.images.lg} alt={character.name} className="character-img"/>
-                                <p className="character-name">{character.name}</p>
-                                <div className="stats-container">
-                                    <span title="Inteligencia" className="stats">🧠 {character.powerstats.intelligence}</span>
-                                    <span title="Fuerza" className="stats">💪 {character.powerstats.strength}</span>
-                                    <span title="Velocidad" className="stats">⚡ {character.powerstats.speed}</span>
-                                    <span title="Resistencia" className="stats">🛡️ {character.powerstats.durability}</span>
-                                    <span title="Poder" className="stats">✨ {character.powerstats.power}</span>
-                                    <span title="Combate" className="stats">⚔️ {character.powerstats.combat}</span>
-                                </div>
-                            </li>
-                        ))}
+                        {charactersVisibles.map((character, i) => {
+                            return (
+                                <li key={character.id} className="character-container">
+                                    <img src={character.images.md} alt={character.name} className="character-img" width="320"
+                                    height="480" loading={i < 6 ? "eager" : "lazy"} decoding="async" fetchPriority={i === 0 ? "high" : undefined}/>
+                                    <p className="character-name">{character.name}</p>
+                                    <div className="stats-container">
+                                        <span title="Inteligencia" className="stats">🧠 {character.powerstats.intelligence}</span>
+                                        <span title="Fuerza" className="stats">💪 {character.powerstats.strength}</span>
+                                        <span title="Velocidad" className="stats">⚡ {character.powerstats.speed}</span>
+                                        <span title="Resistencia" className="stats">🛡️ {character.powerstats.durability}</span>
+                                        <span title="Poder" className="stats">✨ {character.powerstats.power}</span>
+                                        <span title="Combate" className="stats">⚔️ {character.powerstats.combat}</span>
+                                    </div>
+                                </li>
+                            )
+                        })}
                     </ul>
                 </div>
             )}
