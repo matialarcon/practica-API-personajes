@@ -24,7 +24,7 @@ export function ListCharacters() {
                         {charactersVisibles.map((character, i) => {
                             return (
                                 <li key={character.id} className="character-container">
-                                    <img src={character.images.md} alt={character.name} className="character-img" width="320"
+                                    <img src={character.images.sm} alt={character.name} className="character-img" width="320"
                                     height="480" loading={i < 6 ? "eager" : "lazy"} decoding="async" fetchPriority={i === 0 ? "high" : undefined}/>
                                     <p className="character-name">{character.name}</p>
                                     <div className="stats-container">
